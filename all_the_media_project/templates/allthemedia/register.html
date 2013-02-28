@@ -1,0 +1,12 @@
+<body>
+  {% if registered %}
+  <a href="/allthemedia/">Home</a>
+  {% else %}
+  <form method="post" id="user_form" action="/allthemedia/register/">
+	{% csrf_token %}
+	{{ uform.as_p }}
+	{{ pform.as_p }}
+	<input type="submit" name="submit" value="submit" />
+  </form>
+  {% endif %}
+</body>

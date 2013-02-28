@@ -2,14 +2,26 @@
   <header><title>All the Media</title></header>
   <body>
 	<h2>Hello World!</h2>
-<a href = "/allthemedia/about/">About</a>  
-{% if all_playlists %}
-<ul>
-  {% for playlist in all_playlists %}
-  <li>{{ playlist.title }} </li>
-  {% endfor %}
-{% else %}
-<p> No playlists at present </p>
-{% endif %}
-</body>
+	<a href = "/allthemedia/about/">About</a>
+	
+	<p>
+	  {% if user.is_authenticated %}
+	  Welcome {{ user.username }} |
+	  <a href="/allthemedia/logout/">Logout</a>
+	  {% else %}
+	  <a href="/allthemedia/register/">Register</a> |
+	  <a href="/allthemedia/login/">Login</a>
+	  {% endif %}
+	</p>
+
+	  <br /> {% if all_playlists %}
+	  <ul>
+		{% for playlist in all_playlists %}
+		<li>{{ playlist.title }} </li>
+		{% endfor %}
+	  </ul>
+	  {% else %}
+	<p> No playlists at present </p>
+	{% endif %}
+  </body>
 </html>
