@@ -4,6 +4,7 @@ from allthemedia.models import Playlist, Media
 from django.contrib.auth.models import User
 from allthemedia.models import UserProfile
 from allthemedia.models import UserForm, UserProfileForm
+from allthemedia.models import PlaylistForm, MediaForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login, logout
@@ -12,7 +13,12 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     template = loader.get_template('allthemedia/index.html')
     all_playlists = Playlist.objects.all()
-    context = RequestContext(request, { 'all_playlists' : all_playlists })
+    context_dict = { 'all_playlists' : all_playlists }
+    user_list = UserProfile.objects.all()
+    for u in user_list:
+        u.url = u.user.username
+    context_dict['user_list'] = user_list
+    context = RequestContext(request, context_dict)
     return HttpResponse(template.render(context))
 
 def about(request):
@@ -24,9 +30,13 @@ def user(request, user_name_url):
     template = loader.get_template('allthemedia/userprofile.html')
 
     context_dict = {'user_name_url': user_name_url }
-    user = User.objects.filter(name=user_name_url)
+    user = User.objects.filter(username=user_name_url)
     if user:
-        playlists = Playlist.objects.filter(
+        playlists = Playlist.objects.filter(creator=user)
+        context_dict['playlists'] = playlists
+        
+    context = RequestContext(request, context_dict)
+    return HttpResponse(template.render(context))
 
 def register(request):
     context = RequestContext(request)
@@ -85,4 +95,26 @@ def user_logout(request):
     context = RequestContext(request)
     logout(request)
     return HttpResponseRedirect('/allthemedia/')
-    
+
+@login_required    
+def add_playlist(request):
+    context = RequestContext(request)
+    if request.method == 'POST':
+        form = PlaylistForm(request.POST)
+        if form.is_valid():
+            pl = form.save(commit = False)
+            pl.views = 0
+            pl.creator = request.user
+            pl.save()
+            return index(request)
+        else:
+            # form not valid, show form again
+            pass
+    else:
+        # GET request, so show form
+        form = PlaylistForm()
+    return render_to_response('allthemedia/add_playlist.html',
+                              {'form':form}, context)
+#
+#def add_media(request):
+#    context = RequestContext(request)

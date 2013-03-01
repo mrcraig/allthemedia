@@ -1,0 +1,13 @@
+<body>
+  <h2>{{ user_name_url }}</h2>
+  {% if playlists %}
+  <ul>
+  {% for playlist in playlists %}
+  <li>{{ playlist.title }}</li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p>No playlists yet.</p>
+  {% endif %}
+  
+</body>
