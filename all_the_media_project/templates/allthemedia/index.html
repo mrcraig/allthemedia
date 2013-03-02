@@ -19,7 +19,7 @@
 	  <ul>
 		{% for playlist in all_playlists %}
 		<li>
-		  <a href="/allthemedia/{{ playlist.creator }}/">
+		  <a href="/allthemedia/user/{{ playlist.creator }}/">
 			{{ playlist.creator }}</a></b>: {{ playlist.title }} </li>
 		{% endfor %}
 	  </ul>

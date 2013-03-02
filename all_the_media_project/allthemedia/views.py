@@ -66,7 +66,27 @@ def register(request):
                                pform, 'registered': registered },
                               context)
 
-
+def playlist(request, user_name_url, playlist_title_url):
+    context = RequestContext(request)
+    user = User.objects.get(username=user_name_url)
+    if user:
+        context_dict = {'user': user}
+        playlist_title = decode_playlist(playlist_title_url)
+        playlist = Playlist.objects.get(title = playlist_title)
+        if playlist:
+            context_dict['playlist'] = playlist
+            media = Media.objects.all(playlist=playlist)
+            context_dict['media'] = media
+            return render_to_response('allthemedia/playlist.html',
+                                      context_dict,
+                                      context)
+        else:
+            print "This user has no such playlist " + playlist_title
+            return HttpResponse("/allthemedia/")
+    else:
+        print "No such user, " + user_name_url
+        return HttpResponse("/allthemedia/")
+    
 
 def user_login(request):
     context = RequestContext(request)
@@ -115,6 +135,34 @@ def add_playlist(request):
         form = PlaylistForm()
     return render_to_response('allthemedia/add_playlist.html',
                               {'form':form}, context)
-#
-#def add_media(request):
-#    context = RequestContext(request)
+
+def add_media(request, playlist_title_url):
+    context = RequestContext(request)
+    playlist_title = decode_playlist(playlist_title_url)
+    if request.method == 'POST':
+        form = MediaForm(request.POST)
+        if form.isValid():
+            m = form.save(commit = False)
+            pl = Playlist.objects.get(title = playlist_title)
+            m.playlist = pl
+            src = get_source(m.url)
+            m.source = src
+            m.save()
+            #return playlist(request, playlist_title)
+            print "Show Playlist here"
+        else:
+            print form.errors
+    else:
+        form = MediaForm()
+    return render_to_response('/allthemedia/add_media.html',
+                              {'playlist_title_url': playlist_title_url,
+                               'playlist_title': playlist_title,
+                               'form' : form},
+                              context)
+            
+            
+def encode_playlist(playlist_title):
+    return playlist_title.replace(' ', '_')
+
+def decode_playlist(playlist_url):
+    return playlist_title.replace('_', ' ')
