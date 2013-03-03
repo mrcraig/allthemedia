@@ -3,7 +3,9 @@
   {% if playlists %}
   <ul>
   {% for playlist in playlists %}
-  <li>{{ playlist.title }}</li>
+  <!-- the following line doesn't actually work, need to encode the --
+	-- playlist.title before it becomes part of link -->
+  <li><a href="/user/{{ user_name_url }}/{{ playlist.title }}">{{ playlist.title }}</a></li>
   {% endfor %}
   </ul>
   {% else %}

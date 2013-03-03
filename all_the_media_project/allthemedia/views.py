@@ -1,3 +1,5 @@
+from urlparse import urlparse
+from string import lower
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from allthemedia.models import Playlist, Media
@@ -68,24 +70,25 @@ def register(request):
 
 def playlist(request, user_name_url, playlist_title_url):
     context = RequestContext(request)
-    user = User.objects.get(username=user_name_url)
+    user = User.objects.filter(username=user_name_url)
     if user:
         context_dict = {'user': user}
         playlist_title = decode_playlist(playlist_title_url)
-        playlist = Playlist.objects.get(title = playlist_title)
-        if playlist:
-            context_dict['playlist'] = playlist
-            media = Media.objects.all(playlist=playlist)
+        pl = Playlist.objects.filter(title = playlist_title)
+        if pl:
+            context_dict['playlist'] = pl
+            media = Media.objects.filter(playlist=pl)
             context_dict['media'] = media
+            context_dict['playlist_title'] = playlist_title
             return render_to_response('allthemedia/playlist.html',
                                       context_dict,
                                       context)
         else:
             print "This user has no such playlist " + playlist_title
-            return HttpResponse("/allthemedia/")
+            return HttpResponseRedirect("/allthemedia/")
     else:
         print "No such user, " + user_name_url
-        return HttpResponse("/allthemedia/")
+        return HttpResponseRedirect("/allthemedia/")
     
 
 def user_login(request):
@@ -101,7 +104,7 @@ def user_login(request):
                 return HttpResponseRedirect("/allthemedia/")
             else:
                 # Return a 'disabled account' error message
-                return HttpResponse("You're account is disabled.")
+                return HttpResponse("Your account is disabled.")
         else:
             # Return an 'invalid login' error message.
             print  "invalid login details " + username + " " + password
@@ -123,6 +126,7 @@ def add_playlist(request):
         form = PlaylistForm(request.POST)
         if form.is_valid():
             pl = form.save(commit = False)
+            pl.title = lower(pl.title)
             pl.views = 0
             pl.creator = request.user
             pl.save()
@@ -162,7 +166,11 @@ def add_media(request, playlist_title_url):
             
             
 def encode_playlist(playlist_title):
-    return playlist_title.replace(' ', '_')
+    return lower(playlist_title.replace(' ', '_'))
 
 def decode_playlist(playlist_url):
-    return playlist_title.replace('_', ' ')
+    return playlist_url.replace('_', ' ')
+
+def get_source(media_url):
+    s = urlparse(media_url)
+    return s.hostname

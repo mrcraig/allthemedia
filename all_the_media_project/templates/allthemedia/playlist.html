@@ -9,8 +9,8 @@
 	<p></p>
 	{% if media %}
 	<ul>
-	{% for media in media_list %}
-	<li>{{ media.name }}</li>
+	{% for m in media %}
+	<li><a href="{{ m.url }}">{{ m.name }}</a></li>
 	{% endfor %}
 	</ul>
 	{% else %}
