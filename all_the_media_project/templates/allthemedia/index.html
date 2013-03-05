@@ -6,7 +6,8 @@
 	
 	<p>
 	  {% if user.is_authenticated %}
-	  Welcome {{ user.username }} |
+	  Welcome <a href="/allthemedia/user/{{ user.username }}">
+		{{ user.username }}</a> |
 	  <a href="/allthemedia/logout/">Logout</a> |
 	  <a href="/allthemedia/add_playlist/">Add Playlist</a>
 	  {% else %}
@@ -19,8 +20,12 @@
 	  <ul>
 		{% for playlist in all_playlists %}
 		<li>
+		  <b>
 		  <a href="/allthemedia/user/{{ playlist.creator }}/">
-			{{ playlist.creator }}</a></b>: {{ playlist.title }} </li>
+			{{ playlist.creator }}</a>
+		  </b>
+		  : {{ playlist.title }} 
+		</li>
 		{% endfor %}
 	  </ul>
 	  {% else %}

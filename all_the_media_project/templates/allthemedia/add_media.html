@@ -4,7 +4,7 @@
   </head>
 <body>
   <form method="post" id="media_form"
-		action="/allthemedia/add_media/{{ playlist_title_url }}">
+		action="/allthemedia/user/{{user_name_url}}/{{ playlist_title_url }}/">
 	{% csrf_token %}
 	{% for hidden in form.hidden_fields %}
 	{{ hidden }}

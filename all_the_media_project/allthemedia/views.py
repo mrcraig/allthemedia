@@ -36,6 +36,11 @@ def user(request, user_name_url):
     if user:
         playlists = Playlist.objects.filter(creator=user)
         context_dict['playlists'] = playlists
+        playlist_urls = {}
+        for pl in playlists:
+            playlist_urls[pl.title] = encode_playlist(pl.title)
+            context_dict['playlist_urls'] = playlist_urls
+        print playlist_urls
         
     context = RequestContext(request, context_dict)
     return HttpResponse(template.render(context))
@@ -80,6 +85,7 @@ def playlist(request, user_name_url, playlist_title_url):
             media = Media.objects.filter(playlist=pl)
             context_dict['media'] = media
             context_dict['playlist_title'] = playlist_title
+            context_dict['playlist_url'] = playlist_title_url
             return render_to_response('allthemedia/playlist.html',
                                       context_dict,
                                       context)
@@ -145,7 +151,7 @@ def add_media(request, playlist_title_url):
     playlist_title = decode_playlist(playlist_title_url)
     if request.method == 'POST':
         form = MediaForm(request.POST)
-        if form.isValid():
+        if form.is_valid():
             m = form.save(commit = False)
             pl = Playlist.objects.get(title = playlist_title)
             m.playlist = pl
@@ -158,7 +164,7 @@ def add_media(request, playlist_title_url):
             print form.errors
     else:
         form = MediaForm()
-    return render_to_response('/allthemedia/add_media.html',
+    return render_to_response('allthemedia/add_media.html',
                               {'playlist_title_url': playlist_title_url,
                                'playlist_title': playlist_title,
                                'form' : form},
