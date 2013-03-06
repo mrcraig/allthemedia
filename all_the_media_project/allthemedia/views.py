@@ -77,7 +77,7 @@ def playlist(request, user_name_url, playlist_title_url):
     context = RequestContext(request)
     user = User.objects.filter(username=user_name_url)
     if user:
-        context_dict = {'user': user}
+        context_dict = {'user': user, 'user_name_url':user_name_url}
         playlist_title = decode_playlist(playlist_title_url)
         pl = Playlist.objects.filter(title = playlist_title)
         if pl:
@@ -139,31 +139,33 @@ def add_playlist(request):
             return index(request)
         else:
             # form not valid, show form again
-            pass
+            print form.errors
     else:
         # GET request, so show form
         form = PlaylistForm()
     return render_to_response('allthemedia/add_playlist.html',
                               {'form':form}, context)
 
-def add_media(request, playlist_title_url):
+def add_media(request, playlist_title_url, user_name_url):
     context = RequestContext(request)
     playlist_title = decode_playlist(playlist_title_url)
     pl = Playlist.objects.get(title = playlist_title)
-    user_name_url = pl.creator.username
-    if request.method == 'POST':
-        form = MediaForm(request.POST)
-        if form.is_valid():
-            m = form.save(commit = False)
-            m.playlist = pl
-            src = get_source(m.url)
-            m.source = src
-            m.save()
-            return playlist(request, playlist_title_url, user_name_url)
+    if pl:
+        if request.method == 'POST':
+            form = MediaForm(request.POST)
+            if form.is_valid():
+                m = form.save(commit = False)
+                m.playlist = pl
+                src = get_source(m.url)
+                m.source = src
+                m.save()
+                return playlist(request, playlist_title_url, user_name_url)
+            else:
+                print form.errors
         else:
-            print form.errors
+            form = MediaForm()
     else:
-        form = MediaForm()
+       return HttpResponse("Playlist not found") 
     return render_to_response('allthemedia/add_media.html',
                               {'playlist_title_url': playlist_title_url,
                                'playlist_title': playlist_title,
