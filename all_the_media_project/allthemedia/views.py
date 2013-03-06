@@ -149,17 +149,17 @@ def add_playlist(request):
 def add_media(request, playlist_title_url):
     context = RequestContext(request)
     playlist_title = decode_playlist(playlist_title_url)
+    pl = Playlist.objects.get(title = playlist_title)
+    user_name_url = pl.creator.username
     if request.method == 'POST':
         form = MediaForm(request.POST)
         if form.is_valid():
             m = form.save(commit = False)
-            pl = Playlist.objects.get(title = playlist_title)
             m.playlist = pl
             src = get_source(m.url)
             m.source = src
             m.save()
-            #return playlist(request, playlist_title)
-            print "Show Playlist here"
+            return playlist(request, playlist_title_url, user_name_url)
         else:
             print form.errors
     else:
@@ -167,6 +167,7 @@ def add_media(request, playlist_title_url):
     return render_to_response('allthemedia/add_media.html',
                               {'playlist_title_url': playlist_title_url,
                                'playlist_title': playlist_title,
+                               'user_name_url': user_name_url,
                                'form' : form},
                               context)
             
