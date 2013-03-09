@@ -45,6 +45,22 @@ def user(request, user_name_url):
     context = RequestContext(request, context_dict)
     return HttpResponse(template.render(context))
 
+#def playlist(request, playlist_title_url):
+    #template = loader.get_template('allthemedia/playlist.html')
+    
+    #context_dict = {'playlist_title_url': playlist_title_url }
+    #plist = Playlist.objects.filter(plist=playlist_title_url)
+    #if playlist:
+        #media = Media.objects.filter(playlist=plist)
+        #context_dict['media'] = media
+        #media_urls = {}
+        #for md in media:
+            #media_urls[md.name] = encode_media(md.name)
+            #context_dict['media_urls
+
+    #context= RequestContext(request, context_dict)
+    #return HttpResponse(template.render(context))
+
 def register(request):
     context = RequestContext(request)
     registered = False
