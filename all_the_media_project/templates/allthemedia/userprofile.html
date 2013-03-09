@@ -1,11 +1,20 @@
+<!---
+
+user(request, user_name_url)
+returns:
+   user_name_url: username (derived from url)
+   playlists: list of playlists associated with this user
+
+---->
+
 <body>
   <h2>{{ user_name_url|capfirst }}'s Profile</h2>
   {% if playlists %}
   <ul>
   {% for playlist in playlists %}
-  <!-- the following line doesn't actually work, need to encode the --
-	-- playlist.title before it becomes part of link -->
-  BROKEN
+  <li>
+  <a href="{{ playlist.url }}">{{ playlist.title }}</a>
+  </li>
   {% endfor %}
   </ul>
   {% else %}

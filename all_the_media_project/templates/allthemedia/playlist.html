@@ -1,11 +1,20 @@
 <html>
+ <!----
+	playlist(request, user_name_url, playlist_title_url)
+	returns:
+	user: user (creator of the playlist)
+	user_name_url : username derived from url
+	playlist: the playlist you are trying to view
+	media: list of media in playlist
+
+   ---->
   <head>
-	<title>Playlist - {{ playlist_title }}</title>
+	<title>Playlist - {{ playlist.title }}</title>
   </head>
 
   <body>
 	
-	<h1>{{ playlist_title }}</h1>
+	<h1>{{ playlist.title }}</h1>
 	<p></p>
 	{% if media %}
 	<ul>
@@ -17,7 +26,9 @@
 	No media in playlist
 	{% endif %}
 <p>
-	<a href="/allthemedia/user/{{ user_name_url }}/{{ playlist_url }}/add_media/">Add Media</a>
+  {{ playlist.url }}<br>
+  {{ user_name_url }}<br>
+	<a href="/allthemedia/user/{{ user_name_url }}/{{ playlist.url }}/add_media/">Add Media</a>
 </p>
   </body>
 </html>

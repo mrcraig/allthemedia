@@ -36,12 +36,6 @@ def user(request, user_name_url):
     if user:
         playlists = Playlist.objects.filter(creator=user)
         context_dict['playlists'] = playlists
-        playlist_urls = {}
-        for pl in playlists:
-            playlist_urls[pl.title] = encode_playlist(pl.title)
-            context_dict['playlist_urls'] = playlist_urls
-        print playlist_urls
-        
     context = RequestContext(request, context_dict)
     return HttpResponse(template.render(context))
 
@@ -78,14 +72,12 @@ def playlist(request, user_name_url, playlist_title_url):
     user = User.objects.filter(username=user_name_url)
     if user:
         context_dict = {'user': user, 'user_name_url':user_name_url}
-        playlist_title = decode_playlist(playlist_title_url)
+        playlist_title = decode(playlist_title_url)
         pl = Playlist.objects.filter(title = playlist_title)
         if pl:
             context_dict['playlist'] = pl
             media = Media.objects.filter(playlist=pl)
             context_dict['media'] = media
-            context_dict['playlist_title'] = playlist_title
-            context_dict['playlist_url'] = playlist_title_url
             return render_to_response('allthemedia/playlist.html',
                                       context_dict,
                                       context)
@@ -135,6 +127,7 @@ def add_playlist(request):
             pl.title = lower(pl.title)
             pl.views = 0
             pl.creator = request.user
+            pl.url = encode(pl.title)
             pl.save()
             return index(request)
         else:
@@ -148,7 +141,7 @@ def add_playlist(request):
 
 def add_media(request, playlist_title_url, user_name_url):
     context = RequestContext(request)
-    playlist_title = decode_playlist(playlist_title_url)
+    playlist_title = decode(playlist_title_url)
     pl = Playlist.objects.get(title = playlist_title)
     if pl:
         if request.method == 'POST':
@@ -159,7 +152,7 @@ def add_media(request, playlist_title_url, user_name_url):
                 src = get_source(m.url)
                 m.source = src
                 m.save()
-                return playlist(request, playlist_title_url, user_name_url)
+                return playlist(request, pl.url, user_name_url)
             else:
                 print form.errors
         else:
@@ -167,18 +160,17 @@ def add_media(request, playlist_title_url, user_name_url):
     else:
        return HttpResponse("Playlist not found") 
     return render_to_response('allthemedia/add_media.html',
-                              {'playlist_title_url': playlist_title_url,
-                               'playlist_title': playlist_title,
-                               'user_name_url': user_name_url,
+                              {'user_name_url': user_name_url,
+                               'playlist': pl,
                                'form' : form},
                               context)
-            
-            
-def encode_playlist(playlist_title):
-    return lower(playlist_title.replace(' ', '_'))
 
-def decode_playlist(playlist_url):
-    return playlist_url.replace('_', ' ')
+
+def encode(title):
+    return lower(title.replace(' ', '_'))
+
+def decode(url):
+    return url.replace('_', ' ')
 
 def get_source(media_url):
     s = urlparse(media_url)

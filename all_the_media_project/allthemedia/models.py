@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 
 class Playlist(models.Model):
+
     title = models.CharField(max_length=128, unique=True)
     # title of this playlist, primary key
     views = models.IntegerField()
@@ -11,6 +12,7 @@ class Playlist(models.Model):
     #collaborators = reference to users who are collaborators
     creator = models.ForeignKey(User)
     #creator does not currently work with the populate script
+    url = models.CharField(max_length=128);
 
     def __unicode__(self):
         return self.title

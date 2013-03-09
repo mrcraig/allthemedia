@@ -1,10 +1,20 @@
 <html>
+
+<!--------
+   
+add_media(request, playlist_title_url, user_name_url
+returns:
+   user_name_url: username derived from url
+   playlist: playlist to add media to
+   form: MediaForm
+
+--------->
   <head>
 	<title>AllTheMedia - Add Media</title>
   </head>
 <body>
   <form method="post" id="media_form"
-		action="/allthemedia/user/{{ user_name_url }}/{{ playlist_title_url }}/add_media/">
+		action="/allthemedia/user/{{ user_name_url }}/{{ playlist.url }}/add_media/">
 	{% csrf_token %}
 	{% for hidden in form.hidden_fields %}
 	{{ hidden }}
