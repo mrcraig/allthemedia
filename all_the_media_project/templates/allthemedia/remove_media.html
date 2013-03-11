@@ -1,0 +1,27 @@
+<html>
+
+    <head>
+        <title>AllTheMedia - Remove Media</title>
+    </head>
+
+    <body>
+
+        <h1>Remove media from {{ playlist.title|title }}</h1>
+    
+        <!--Non-empty Playlist-->
+        {% if media %}
+	        <ul>
+            <form method="post" id="media_form"
+                <!--Displays each media item in the playlist-->
+	            {% for m in media %}
+                    <li>{{ m.name }} <input type="checkbox" name={{ m.name }} value="delete"></li>
+	            {% endfor %}
+                <input type="submit" name="submit" value="submit" />
+            </form>
+            </ul>
+
+        {% endif %}
+
+    </body>
+
+</html>

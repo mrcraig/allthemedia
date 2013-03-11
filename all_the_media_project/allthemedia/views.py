@@ -165,6 +165,31 @@ def add_media(request, playlist_title_url, user_name_url):
                                'form' : form},
                               context)
 
+def remove_media(request, playlist_title_url, user_name_url):
+    context = RequestContext(request)
+    context_dict = {'user': user, 'user_name_url':user_name_url}
+    playlist_title = decode(playlist_title_url)
+    pl = Playlist.objects.get(title = playlist_title)
+    if user:
+        if pl:
+            #if request.method == 'POST':
+                #if form.is_valid():
+                    # do something
+                #else:
+                    #print form.errors
+            #else:
+            context_dict['playlist'] = pl
+            media = Media.objects.filter(playlist=pl)
+            context_dict['media'] = media
+            return render_to_response('allthemedia/remove_media.html',
+                                      context_dict,
+                                      context)
+        else:
+            print "This user has no such playlist " + playlist_title
+            return HttpResponseRedirect("/allthemedia/")
+    else:
+        print "No such user, " + user_name_url
+        return HttpResponseRedirect("/allthemedia/")
 
 def encode(title):
     return lower(title.replace(' ', '_'))
