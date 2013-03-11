@@ -2,13 +2,15 @@
 
 user(request, user_name_url)
 returns:
-   user_name_url: username (derived from url)
+   user: the user associated with this profile
+   userprofile: the UserProfile model of the user whose profile we are --
+  --trying to view
    playlists: list of playlists associated with this user
 
 ---->
 
 <body>
-  <h2>{{ user_name_url|capfirst }}'s Profile</h2>
+  <h2>{{ user.username|capfirst }}'s Profile</h2>
   {% if playlists %}
   <ul>
   {% for playlist in playlists %}

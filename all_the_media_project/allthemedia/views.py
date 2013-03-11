@@ -1,5 +1,6 @@
 from urlparse import urlparse
 from string import lower
+from time import sleep
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from allthemedia.models import Playlist, Media
@@ -52,19 +53,23 @@ def about(request):
 def user(request, user_name_url):
     template = loader.get_template('allthemedia/userprofile.html')
 
-    user = User.objects.get(username=user_name_url)
-    if user:
-        context_dict['user':user]
-        up = UserProfile.objects.get(user=user)
+    u = User.objects.get(username=user_name_url)
+    if u:
+        context_dict = {'user' : u}
+        up = UserProfile.objects.get(user=u)
         context_dict['userprofile']= up
-        playlists = Playlist.objects.filter(creator=user)
+        playlists = Playlist.objects.filter(creator=u)
         context_dict['playlists'] = playlists
+    else:
+        HttpResponse("No user, {{ user_name_url }} found, returning to home page")
+        time.sleep(5)
+        HttpResponseRedirect("/allthemedia/")
     context = RequestContext(request, context_dict)
     return HttpResponse(template.render(context))
 
 def playlist(request, user_name_url, playlist_title_url):
     context = RequestContext(request)
-    user = User.objects.filter(username=user_name_url)
+    user = User.objects.get(username=user_name_url)
     if user:
         context_dict = {'user': user, 'user_name_url':user_name_url}
         playlist_title = decode(playlist_title_url)
