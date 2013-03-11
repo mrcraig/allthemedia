@@ -16,49 +16,8 @@ def index(request):
     template = loader.get_template('allthemedia/index.html')
     all_playlists = Playlist.objects.all()
     context_dict = { 'all_playlists' : all_playlists }
-    user_list = UserProfile.objects.all()
-    for u in user_list:
-        u.url = u.user.username
-    context_dict['user_list'] = user_list
-    context = RequestContext(request, context_dict)
-    return HttpResponse(template.render(context))
-
-def about(request):
-    template = loader.get_template('allthemedia/about.html')
-    context = RequestContext(request, {})
-    return HttpResponse(template.render(context))
-
-def user(request, user_name_url):
-    template = loader.get_template('allthemedia/userprofile.html')
-
-    user = User.objects.get(username=user_name_url)
-    if user:
-        context_dict['user':user]
-        up = UserProfile.objects.get(user=user)
-        context_dict['userprofile']= up
-        playlists = Playlist.objects.filter(creator=user)
-        context_dict['playlists'] = playlists
-    context = RequestContext(request, context_dict)
-    return HttpResponse(template.render(context))
-
-#def playlist(request, playlist_title_url):
-    #template = loader.get_template('allthemedia/playlist.html')
-    
-    #context_dict = {'playlist_title_url': playlist_title_url }
-    #plist = Playlist.objects.filter(plist=playlist_title_url)
-    #if playlist:
-        #media = Media.objects.filter(playlist=plist)
-        #context_dict['media'] = media
-        #media_urls = {}
-        #for md in media:
-            #media_urls[md.name] = encode_media(md.name)
-            #context_dict['media_urls
-
-    #context= RequestContext(request, context_dict)
-    #return HttpResponse(template.render(context))
-
-def register(request):
     context = RequestContext(request)
+    # registration stuff
     registered = False
     if request.method == 'POST':
         uform = UserForm(data = request.POST)
@@ -79,11 +38,29 @@ def register(request):
     else:
         uform = UserForm()
         pform = UserProfileForm()
-        
-    return render_to_response('allthemedia/register.html', 
-                              {'uform': uform, 'pform': 
-                               pform, 'registered': registered },
-                              context)
+    context_dict['uform'] = uform
+    context_dict['pform'] = pform
+    context_dict['registered'] = registered
+    context = RequestContext(request, context_dict)
+    return HttpResponse(template.render(context))
+
+def about(request):
+    template = loader.get_template('allthemedia/about.html')
+    context = RequestContext(request, {})
+    return HttpResponse(template.render(context))
+
+def user(request, user_name_url):
+    template = loader.get_template('allthemedia/userprofile.html')
+
+    user = User.objects.get(username=user_name_url)
+    if user:
+        context_dict['user':user]
+        up = UserProfile.objects.get(user=user)
+        context_dict['userprofile']= up
+        playlists = Playlist.objects.filter(creator=user)
+        context_dict['playlists'] = playlists
+    context = RequestContext(request, context_dict)
+    return HttpResponse(template.render(context))
 
 def playlist(request, user_name_url, playlist_title_url):
     context = RequestContext(request)
