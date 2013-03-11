@@ -12,15 +12,11 @@
 	<title>Playlist - {{ playlist.title|title }}</title>
   </head>
 
-
   <body>
 
     <h1>Playlist - {{ playlist.title|title }}</h1>
 
-	<p></p>
-
-  <body>
-
+    <!--Initializing JavaScript variables-->
     <script type="text/javascript">
         var vids = [];
         var vidCount = 0;
@@ -32,6 +28,7 @@
     {% if media %}
     
 	<ul>
+    <!--Adds each 'Media' in PL into 'vids' variable in JavaScript-->
 	{% for m in media %}
         <script>
             m = "{{ m.url }}";
@@ -40,6 +37,7 @@
         </script>
 	{% endfor %}
 
+    <!--JavaScript for loading and manipulating YouTube player-->
     <div id="player"></div>
               
               <script>
@@ -57,7 +55,7 @@
 
               vidCount = 0;
               var video_id;
-              getVidID();
+              video_id=getVidID(vidCount);
 
               // 3. This function creates an <iframe> (and YouTube player)
               //    after the API code downloads.
@@ -88,43 +86,81 @@
                     nextVid();
                 }
               }
-
+                
+              // load next video into player
               function nextVid() {
                 vidCount++;
                 if (vidCount >= (vids.length)){
                     vidCount = 0;
                 }
-                getVidID();
+                video_id=getVidID(vidCount);
+                nextImg();  // update next/prev thumbnails
                 player.loadVideoById(video_id);
               }
 
+              // load prev video into player
               function prevVid() {
                 vidCount--;
                 if (vidCount < 0){
                     vidCount = vids.length-1;
                 }
-                getVidID();
+                video_id=getVidID(vidCount);
+                nextImg();  // update next/prev thumbnails
                 player.loadVideoById(video_id);
               }
             
-              function getVidID(){
-                video_id = vids[vidCount].split('v=')[1];
-                var ampersandPosition = video_id.indexOf('&');
+              // parse URL to get video ID
+              function getVidID(vc){
+                vID = vids[vc].split('v=')[1];
+                var ampersandPosition = vID.indexOf('&');
                 if(ampersandPosition != -1) {
-                    video_id = video_id.substring(0, ampersandPosition);
+                    vID = vID.substring(0, ampersandPosition);
                 }
+                return vID;
+              }
+
+              // updates next/prev thumbnails
+              function nextImg(){
+                var img = document.getElementById("next_vid_img");
+                var next_id;
+
+                if (vidCount >= (vids.length - 1)){
+                    next_id=getVidID(0);
+                } else {
+                    next_id=getVidID(vidCount+1);
+                }
+                var new_src=("http://img.youtube.com/vi/"+next_id+"/1.jpg");
+                img.src=new_src;
+
+                img = document.getElementById("prev_vid_img");
+                if (vidCount == 0){
+                    next_id=getVidID(vids.length-1);
+                } else {
+                    next_id=getVidID(vidCount-1);
+                }
+                new_src=("http://img.youtube.com/vi/"+next_id+"/1.jpg");
+                img.src=new_src;
+                return;
               }
 
               </script>
-
+            
+              <!--Initialize next/prev images and buttons-->
+              <img id="prev_vid_img"></img>
               <button onclick=prevVid()>Back</button>
               <button onclick=nextVid()>Next</button>
-
+              <img id="next_vid_img"></img>
+              <script>nextImg()</script>
 	</ul>
 
 	{% else %}
+    <!--Empty Playlist-->
 	No media in playlist
 	{% endif %}
+
+	<!--testing <a href="/allthemedia/user/joe/scott_pilgrim_songs/add_media/">Add New Sheeeiiiit</a> -->
+
+    
 
   </body>
 </html>
