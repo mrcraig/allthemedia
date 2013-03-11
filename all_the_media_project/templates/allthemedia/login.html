@@ -1,24 +1,102 @@
 <html>
-  <!---
-	 user_login(request)
-	 returns:
-	 n/a
-	 
-	---->
-  <head>
-	<title>AllTheMedia</title>
-  </head>
+<head>
+<title>ALL the media - Your media solution</title>
+<link rel="stylesheet" href="{{STATIC_URL}}css/site.css" type="text/css" />
+</head>
 <body>
-<form method="post" id="login_form" action="/allthemedia/login/">
-  {% csrf_token %}
-  Username: <br />
-  <input type="text" name="username" value="" size="50"/>
-  <br /> <br />
-  Password:<br />
-  <input type="password" name="password" value="" size="50"/>
-  <br /><br />
-  <input type="submit" name="submit" value="submit" />
-</form>
-  
-</body>  
+<div id="logo-container" align="right">
+	<div id="logo"></div>
+	<div id="header_text"></div>
+	<br /><br /><br /><br /><br /><br />
+	{% if user.is_authenticated %}
+	  Welcome, <a href="/allthemedia/user/{{ user.username }}">
+		{{ user.username }}</a>! |
+	  <a href="/allthemedia/logout/">Logout</a> |
+	  <a href="/allthemedia/add_playlist/">Add Playlist</a>
+	{% else %}
+	<a href="/allthemedia/register/">Register</a> |
+	  <a href="/allthemedia/login/">Login</a>
+	{% endif %}
+	</div>
+</div>
+<div id="logo-spacer"></div>
+
+{% if not user.is_authenticated %}
+<!-- User not logged in (Login/Resgister) -->
+<div id="login-container">
+	<div id="login-sspacer">&nbsp;</div>
+	<div id="login-box">
+		<b>Login</b><hr />
+		Welcome to ALL the media! The site that allows you to create playlists based off a number of different platforms! <br /><br /> Please login.<br /><br />
+		<form method="post" id="login_form" action="/allthemedia/login/">
+		  {% csrf_token %}
+		  Username:<br />
+		  <input type="text" name="username" value="" size="30"/><br />
+		  <br /><br />
+		  Password:<br />
+		  <input type="password" name="password" value="" size="30"/>
+		  <br /><br />
+		  <input type="submit" name="submit" value="Login" />
+		</form>
+	</div>
+	<div id="login-spacer">
+	&nbsp;
+	</div>
+	<div id="register-box">
+		{% if registered %}
+		  Refreshing..
+		  <meta http-equiv="refresh" content="0;url=/allthemedia/" />
+		  {% else %}
+		  <b>Register</b><hr />
+		  <form method="post" id="user_form" action="/allthemedia/">
+			{% csrf_token %}
+			{{ uform.as_p }}
+			{{ pform.as_p }}
+			<input type="submit" name="submit" value="submit" />
+		  </form>
+		{% endif %}
+	</div>
+</div>
+<!-- End login -->
+
+
+<!-- Create playlist -->
+<div id="playbutton-spacer"></div>
+<div id="playbutton">
+	<button name="cpl" value="cpl" style="height:100%; width:30%;">Create Playlist!</button>
+</div>
+<!-- End create playlist -->
+
+{% else %}
+
+<!-- User logged in -->
+	<!-- My Playlists -->
+		<div class="playlist-container">
+			My Playlists
+		</div>
+	<!-- End my playlists -->
+
+
+	<!-- Collaborated Playlists -->
+		<div class="playlist-spacer"></div>
+		<div class="playlist-container">
+			Collab'd
+		</div>
+	<!-- End Collab'd-->
+<!-- End user logged in -->
+
+{% endif %}
+
+<!-- Popular Playlist -->
+<div class="playlist-spacer"></div>
+<div class="playlist-container">
+	Popular playlists
+</div>
+<!-- End popular playlists -->
+
+<!-- Copyright -->
+<div id="copyright">
+Copyright &copy; ALL the media 2013+
+<!-- End Copyright -->
+</body>
 </html>
