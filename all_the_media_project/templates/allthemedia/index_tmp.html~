@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>ALL the media - Your media solution</title>
-<link rel="stylesheet" href="{{STATIC_URL}}/css/main.css" type="text/css" />
+<link rel="stylesheet" href="{{STATIC_URL}}css/main.css" type="text/css" />
 </head>
 <body>
 <div id="logo"></div>

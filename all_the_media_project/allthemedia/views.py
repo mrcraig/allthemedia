@@ -31,9 +31,11 @@ def about(request):
 def user(request, user_name_url):
     template = loader.get_template('allthemedia/userprofile.html')
 
-    context_dict = {'user_name_url': user_name_url }
-    user = User.objects.filter(username=user_name_url)
+    user = User.objects.get(username=user_name_url)
     if user:
+        context_dict['user':user]
+        up = UserProfile.objects.get(user=user)
+        context_dict['userprofile']= up
         playlists = Playlist.objects.filter(creator=user)
         context_dict['playlists'] = playlists
     context = RequestContext(request, context_dict)
@@ -89,7 +91,7 @@ def playlist(request, user_name_url, playlist_title_url):
     if user:
         context_dict = {'user': user, 'user_name_url':user_name_url}
         playlist_title = decode(playlist_title_url)
-        pl = Playlist.objects.filter(title = playlist_title)
+        pl = Playlist.objects.get(title = playlist_title, creator = user)
         if pl:
             context_dict['playlist'] = pl
             media = Media.objects.filter(playlist=pl)
