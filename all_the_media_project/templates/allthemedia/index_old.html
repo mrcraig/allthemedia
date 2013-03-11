@@ -1,0 +1,45 @@
+<html>
+<!--------
+
+index(request)
+returns:
+   all_playlists: list of all playlists in db
+   user_list: list of all users in db
+
+-------------->
+
+  <header><title>All the Media</title></header>
+  <body>
+	<h2>ALL THE MEDIA</h2>
+	<a href = "/allthemedia/about/">About</a>
+	
+	<p>
+	  {% if user.is_authenticated %}
+	  Welcome <a href="/allthemedia/user/{{ user.username }}">
+		{{ user.username }}</a> |
+	  <a href="/allthemedia/logout/">Logout</a> |
+	  <a href="/allthemedia/add_playlist/">Add Playlist</a>
+	  {% else %}
+	  <a href="/allthemedia/register/">Register</a> |
+	  <a href="/allthemedia/login/">Login</a>
+	  {% endif %}
+	</p>
+
+	  <br /> {% if all_playlists %}
+	  <ul>
+		{% for playlist in all_playlists %}
+		<li>
+		  <b>
+		  <a href="/allthemedia/user/{{ playlist.creator }}/">
+			{{ playlist.creator }}</a>
+		  </b>
+		  : <a href="/allthemedia/user/{{ playlist.creator }}/{{ playlist.url }}/">
+            {{ playlist.title }} 
+		</li>
+		{% endfor %}
+	  </ul>
+	  {% else %}
+	<p> No playlists at present </p>
+	{% endif %}
+  </body>
+</html>
