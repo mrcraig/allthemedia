@@ -11,12 +11,12 @@
 <body>
 <form method="post" id="login_form" action="/allthemedia/login/">
   {% csrf_token %}
-  Username:
+  Username: <br />
   <input type="text" name="username" value="" size="50"/>
-  <br />
-  Password:
+  <br /> <br />
+  Password:<br />
   <input type="password" name="password" value="" size="50"/>
-  <br />
+  <br /><br />
   <input type="submit" name="submit" value="submit" />
 </form>
   
