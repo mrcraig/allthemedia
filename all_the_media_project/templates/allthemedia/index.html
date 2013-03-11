@@ -7,6 +7,7 @@
 <div id="logo-container" align="right">
 	<div id="logo"></div>
 	<div id="header_text"></div>
+	<br /><br /><br /><br /><br /><br />
 	{% if user.is_authenticated %}
 	  Welcome <a href="/allthemedia/user/{{ user.username }}">
 		{{ user.username }}</a> |
@@ -41,7 +42,17 @@
 	&nbsp;
 	</div>
 	<div id="register-box">
-		REGISTER STUFF XXOXOOX
+		{% if registered %}
+		  Refreshing..
+		  <meta http-equiv="refresh" content="5;url=/allthemedia/" />
+		  {% else %}
+		  <form method="post" id="user_form" action="/allthemedia/register/">
+			{% csrf_token %}
+			{{ uform.as_p }}
+			{{ pform.as_p }}
+			<input type="submit" name="submit" value="submit" />
+		  </form>
+		{% endif %}
 	</div>
 </div>
 <!-- End login -->
