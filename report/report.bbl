@@ -5,4 +5,9 @@ P.~P.-S. Chen.
 \newblock The entity-relationship model\-toward a unified view of data.
 \newblock {\em ACM Trans. Database Syst.}, 1(1):9--36, Mar. 1976.
 
+\bibitem{dryPrinciple}
+{Cunningham and Cunningham, Inc.}
+\newblock Dry principle.
+\newblock \url{http://c2.com/cgi/wiki?DontRepeatYourself}, 2013.
+
 \end{thebibliography}
