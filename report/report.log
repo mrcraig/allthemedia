@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.30)  12 MAR 2013 17:11
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.30)  12 MAR 2013 20:40
 entering extended mode
  %&-line parsing enabled.
 **report.tex
@@ -242,72 +242,85 @@ Package: booktabs 2005/03/16 v1.6180 publication quality tables
 )
 (/usr/share/texmf/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
-)
-No file report.aux.
+) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Try loading font information for U+msa on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Try loading font information for U+msa on input line 36.
+
 (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 34.
+LaTeX Font Info:    Try loading font information for U+msb on input line 36.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 34.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 36.
 
 (/usr/share/texmf/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
 LaTeX Warning: Citation `glassey2011framework' on page \thepage  undefined on i
-nput line 44.
+nput line 46.
 
 
 LaTeX Warning: Citation `glassey2010fifi' on page \thepage  undefined on input 
-line 44.
+line 46.
 
 
 LaTeX Warning: Citation `elliot2010fifi' on page \thepage  undefined on input l
-ine 44.
+ine 46.
 
-[1{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}
+(./tex/appArch.tex <./img/ntier.png, id=1, 995.72pt x 308.15125pt>
+File: ./img/ntier.png Graphic file (type png)
+
+<use ./img/ntier.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./img/ER.png, id=2, 676.5275pt x 472.76625pt>
+File: ./img/ER.png Graphic file (type png)
+ <use ./img/ER.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [1{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
 No file report.bbl.
-[2] (./report.aux) ) 
+[2 <./img/ntier.png (PNG copy)> <./img/ER.png (PNG copy)>] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 2195 strings out of 256216
- 24333 string characters out of 1917072
+ 2216 strings out of 256216
+ 24599 string characters out of 1917072
  81359 words of memory out of 1500000
- 5431 multiletter control sequences out of 10000+200000
+ 5442 multiletter control sequences out of 10000+200000
  47055 words of font info for 63 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 39i,12n,26p,405b,250s stack positions out of 5000i,500n,6000p,200000b,15000s
-{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/t
-exmf/fonts/type1/bluesky/cm/cmbx9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
-cmr9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy9.pfb></usr/share/texmf/f
-onts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/u
-hvr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/
-fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8
-a.pfb>
-Output written on report.pdf (2 pages, 72562 bytes).
+ 39i,12n,26p,405b,271s stack positions out of 5000i,500n,6000p,200000b,15000s
+{/us
+r/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/bluesky
+/cm/cmbx9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr9.pfb></usr/share/tex
+mf/fonts/type1/bluesky/cm/cmsy9.pfb></usr/share/texmf/fonts/type1/urw/helvetic/
+uhvb8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/te
+xmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/ut
+mr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (2 pages, 128558 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
+ 44 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
