@@ -92,6 +92,14 @@ body{
 	height:15%;
 	background-color:brown;
 	width:100%-20px;
+	color:#FFFFFF;
+}
+.playlist a:link{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+.playlist a:hover{
+	color:#D1D1D1;
 }
 #copyright{
 	width:100%;
@@ -106,7 +114,7 @@ body{
 #midcontent_box{
 	width:40%;
 	background-color:#FFFFFF;
-	height:60%;
+	height:30%;
 	float:left;
 	padding:20px;
 }
