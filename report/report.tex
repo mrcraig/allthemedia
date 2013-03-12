@@ -1,5 +1,6 @@
 \documentclass{sig-alt-release2}
 \usepackage{url}
+\usepackage{hyperref}
 \usepackage{color}
 \usepackage{graphics,graphicx}
 
@@ -10,6 +11,8 @@
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{ifthen}  
+
+\graphicspath{ {./img/} }
 
 \begin{document}
 \newcommand{\todo}[1]{\textcolor{red}{#1}}
@@ -71,19 +74,8 @@ Provide a concise summary of the design of the application
 \end{itemize}
 
 \section{Application Architecture}
-\begin{itemize}
-\item	N-Teir Architecture Diagram
-\item	i.e. data flow diagram between the interface/client, middle ware, and backend services/data repos
-\item	Describe the data model i.e. what data needs to be stored or persisted by the application?
-\item	What are the relationships within the data model.
-\item	i.e. use ER diagram and explain.
-\item	Describe the backend services used (if any).
-\item	Reflective Questions: 
-\item	How have you ensured that there is a separation of concerns? 
-\item	What other technology could have been used instead of django? 
-\item	What are the advantages of using a Web Application Framework over other technology? 
-\item	And, what are the disadvantages?
-\end{itemize}
+\input{./tex/appArch}
+
 
 \section{Message Parsing}
 \begin{itemize}
@@ -198,6 +190,6 @@ Our thanks to the lecturers and demonstrators for their comments and suggestions
 Be sincere and be specific about how others have helped your group.
 
 \bibliographystyle{abbrv}
-\bibliography{sig-proc}
+\bibliography{bibliography}
 
 \end{document}

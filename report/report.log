@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.30)  12 MAR 2013 17:11
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.30)  12 MAR 2013 21:51
 entering extended mode
  %&-line parsing enabled.
 **report.tex
@@ -189,6 +189,53 @@ File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 \Urlmuskip=\muskip11
 Package: url 2005/06/27  ver 3.2  Verb mode for urls, etc.
 )
+(/usr/share/texmf/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2007/02/07 v6.75r Hypertext links for LaTeX
+\@linkdim=\dimen123
+\Hy@linkcounter=\count109
+\Hy@pagecounter=\count110
+
+(/usr/share/texmf/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2007/02/07 v6.75r Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/share/texmf/tex/latex/config/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+(/usr/share/texmf/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2006/08/22 v2.4 Connects package keyval with LaTeX options (
+HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 2288.
+Package hyperref Info: Link nesting OFF on input line 2293.
+Package hyperref Info: Hyper index ON on input line 2296.
+Package hyperref Info: Plain pages OFF on input line 2303.
+Package hyperref Info: Backreferencing OFF on input line 2308.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 2444.
+LaTeX Info: Redefining \url on input line 2599.
+\Fld@menulength=\count111
+\Field@Width=\dimen124
+\Fld@charsize=\dimen125
+\Choice@toks=\toks36
+\Field@toks=\toks37
+Package hyperref Info: Hyper figures OFF on input line 3102.
+Package hyperref Info: Link nesting OFF on input line 3107.
+Package hyperref Info: Hyper index ON on input line 3110.
+Package hyperref Info: backreferencing OFF on input line 3117.
+Package hyperref Info: Link coloring OFF on input line 3122.
+
+Package hyperref Warning: Option `pdfpagelabels' is turned off
+(hyperref)                because \thepage is undefined.
+
+\c@Item=\count112
+\c@Hfootnote=\count113
+)
+*hyperref using default driver hpdftex*
+(/usr/share/texmf/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2007/02/07 v6.75r Hyperref driver for pdfTeX
+\Fld@listcount=\count114
+)
 (/usr/share/texmf/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
@@ -208,106 +255,149 @@ Package: colortbl 2001/02/13 v0.1j Color table columns (DPC)
 
 (/usr/share/texmf/tex/latex/tools/array.sty
 Package: array 2005/08/23 v2.4b Tabular extension package (FMi)
-\col@sep=\dimen123
-\extrarowheight=\dimen124
-\NC@list=\toks36
+\col@sep=\dimen126
+\extrarowheight=\dimen127
+\NC@list=\toks38
 \extratabsurround=\skip44
 \backup@length=\skip45
 )
-\everycr=\toks37
+\everycr=\toks39
 \minrowclearance=\skip46
 )
 (/usr/share/texmf/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen125
+\bigstrutjot=\dimen128
 )
 (/usr/share/texmf/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/03/16 v1.6180 publication quality tables
-\heavyrulewidth=\dimen126
-\lightrulewidth=\dimen127
-\cmidrulewidth=\dimen128
-\belowrulesep=\dimen129
-\belowbottomsep=\dimen130
-\aboverulesep=\dimen131
-\abovetopsep=\dimen132
-\cmidrulesep=\dimen133
-\cmidrulekern=\dimen134
-\defaultaddspace=\dimen135
-\@cmidla=\count109
-\@cmidlb=\count110
-\@aboverulesep=\dimen136
-\@belowrulesep=\dimen137
-\@thisruleclass=\count111
-\@lastruleclass=\count112
-\@thisrulewidth=\dimen138
+\heavyrulewidth=\dimen129
+\lightrulewidth=\dimen130
+\cmidrulewidth=\dimen131
+\belowrulesep=\dimen132
+\belowbottomsep=\dimen133
+\aboverulesep=\dimen134
+\abovetopsep=\dimen135
+\cmidrulesep=\dimen136
+\cmidrulekern=\dimen137
+\defaultaddspace=\dimen138
+\@cmidla=\count115
+\@cmidlb=\count116
+\@aboverulesep=\dimen139
+\@belowrulesep=\dimen140
+\@thisruleclass=\count117
+\@lastruleclass=\count118
+\@thisrulewidth=\dimen141
 )
 (/usr/share/texmf/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
-)
-No file report.aux.
+) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Try loading font information for U+msa on input line 34.
-(/usr/share/texmf/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+Package hyperref Info: Link coloring OFF on input line 17.
+
+(/usr/share/texmf/tex/latex/hyperref/nameref.sty
+Package: nameref 2006/12/27 v2.28 Cross-referencing by name of section
+
+(/usr/share/texmf/tex/latex/oberdiek/refcount.sty
+Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
+)
+\c@section@level=\count119
+)
+LaTeX Info: Redefining \ref on input line 17.
+LaTeX Info: Redefining \pageref on input line 17.
+ (./report.out)
+(./report.out)
+\@outlinefile=\write3
+\openout3 = `report.out'.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+ (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 34.
+LaTeX Font Info:    Try loading font information for U+msb on input line 38.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 34.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 38.
 
 (/usr/share/texmf/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
 LaTeX Warning: Citation `glassey2011framework' on page \thepage  undefined on i
-nput line 44.
+nput line 47.
 
 
 LaTeX Warning: Citation `glassey2010fifi' on page \thepage  undefined on input 
-line 44.
+line 47.
 
 
 LaTeX Warning: Citation `elliot2010fifi' on page \thepage  undefined on input l
-ine 44.
+ine 47.
+
+(./tex/appArch.tex
+Overfull \hbox (2.62306pt too wide) in paragraph at lines 16--19
+\T1/aer/m/n/9 the client (Web Browser), mid-dle-ware (Django), the database
+ []
+
+<./img/ntier.png, id=44, 995.72pt x 308.15125pt>
+File: ./img/ntier.png Graphic file (type png)
+ <use ./img/ntier.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 [1{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-No file report.bbl.
-[2] (./report.aux) ) 
+<./img/ER.png, id=61, 676.5275pt x 472.76625pt>
+File: ./img/ER.png Graphic file (type png)
+ <use ./img/ER.png>)pdfTeX warning (ext4): destination with the same identifier
+ (name{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.105 \end{itemize}
+                    [2 <./img/ntier.png (PNG copy)> <./img/ER.png (PNG copy)>]
+(./report.bbl)pdfTeX warning (ext4): destination with the same identifier (name
+{page.}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.131 \end{document}
+                     [3
+
+] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 2195 strings out of 256216
- 24333 string characters out of 1917072
- 81359 words of memory out of 1500000
- 5431 multiletter control sequences out of 10000+200000
- 47055 words of font info for 63 fonts, out of 1200000 for 2000
+ 3999 strings out of 256216
+ 50732 string characters out of 1917072
+ 114122 words of memory out of 1500000
+ 7180 multiletter control sequences out of 10000+200000
+ 49538 words of font info for 66 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 39i,12n,26p,405b,250s stack positions out of 5000i,500n,6000p,200000b,15000s
-{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/t
-exmf/fonts/type1/bluesky/cm/cmbx9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
-cmr9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy9.pfb></usr/share/texmf/f
-onts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf/fonts/type1/urw/helvetic/u
-hvr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/
-fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri8
-a.pfb>
-Output written on report.pdf (2 pages, 72562 bytes).
+ 39i,12n,37p,405b,359s stack positions out of 5000i,500n,6000p,200000b,15000s
+{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/tex
+mf/fonts/type1/bluesky/cm/cmbx9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cm
+r9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy9.pfb></usr/share/texmf/fon
+ts/type1/bluesky/cm/cmti9.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvb8a
+.pfb></usr/share/texmf/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fo
+nts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.p
+fb></usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (3 pages, 143259 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 107 PDF objects out of 1000 (max. 8388607)
+ 15 named destinations out of 1000 (max. 131072)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 
