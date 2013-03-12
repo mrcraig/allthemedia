@@ -4,13 +4,13 @@
 <link rel="stylesheet" href="{{STATIC_URL}}css/site.css" type="text/css" />
 </head>
 <body>
-<div id="logo-container" align="right">
+<div id="logo-container" align="right" onClick="window.location.href=/allthemedia/">
 	<div id="logo"></div>
 	<div id="header_text"></div>
 	<br /><br /><br /><br /><br /><br />
 	{% if user.is_authenticated %}
-	  Welcome, <a href="/allthemedia/user/{{ user.username|capfirst }}">
-		{{ user.username }}</a>! |
+	  Welcome, <a href="/allthemedia/user/{{ user.username }}">
+		{{ user.username|capfirst }}</a>! |
 	  <a href="/allthemedia/logout/">Logout</a> | <a href="/allthemedia/add_playlist/">Create Playlist</a>
 	{% else %}
 	<a href="/allthemedia/register/">Register</a> |
@@ -62,7 +62,7 @@
 <!-- Create playlist -->
 <div id="playbutton-spacer"></div>
 <div id="playbutton">
-	<button name="cpl" value="cpl" style="height:100%; width:30%;">Create Playlist!</button>
+   <button name="cpl" value="cpl" style="height:100%; width:30%;">Create Playlist!</button>
 </div>
 <!-- End create playlist -->
 	<div class="playlist-container">
@@ -100,7 +100,7 @@
 	</div>
 <!-- Copyright -->
 <div id="copyright">
-Copyright &copy; ALL the media 2013+
+ALL the media 2013+
 <!-- End Copyright -->
 </body>
 </html>
