@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{8tracks}
+{8tracks Inc.}
+\newblock 8tracks.
+\newblock \url{http://8tracks.com/}.
+
 \bibitem{ChenNotation}
 P.~P.-S. Chen.
 \newblock The entity-relationship model\-toward a unified view of data.
@@ -9,5 +14,20 @@ P.~P.-S. Chen.
 {Cunningham and Cunningham, Inc.}
 \newblock Dry principle.
 \newblock \url{http://c2.com/cgi/wiki?DontRepeatYourself}, 2013.
+
+\bibitem{Grooveshark}
+{Escape Media Group}.
+\newblock Grooveshark.
+\newblock \url{http://grooveshark.com/}.
+
+\bibitem{SoundCloud}
+S.~Limited.
+\newblock Soundcloud.
+\newblock \url{http://soundcloud.com}.
+
+\bibitem{YouTube}
+{YouTube, LLC}.
+\newblock Youtube.
+\newblock \url{http://youtube.com}.
 
 \end{thebibliography}
