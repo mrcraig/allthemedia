@@ -11,8 +11,7 @@
 	{% if user.is_authenticated %}
 	  Welcome, <a href="/allthemedia/user/{{ user.username }}">
 		{{ user.username }}</a>! |
-	  <a href="/allthemedia/logout/">Logout</a> |
-	  <a href="/allthemedia/add_playlist/">Add Playlist</a>
+	  <a href="/allthemedia/logout/">Logout</a> | <a href="/allthemedia/add_playlist/">Create Playlist</a>
 	{% else %}
 	<a href="/allthemedia/register/">Register</a> |
 	  <a href="/allthemedia/">Login</a>

@@ -1,20 +1,46 @@
 <html>
-<head>
-<title>ALL the media - {{playlist.title|title}}</title>
-<link rel="stylesheet" href="{{STATIC_URL}}css/site.css" type="text/css" />
-<script type="text/javascript">
+ <!----
+	playlist(request, user_name_url, playlist_title_url)
+	returns:
+	user: user (creator of the playlist)
+	user_name_url : username derived from url
+	playlist: the playlist you are trying to view
+	media: list of media in playlist
+
+   ---->
+  <head>
+	<title>Playlist - {{ playlist.title|title }}</title>
+  </head>
+
+  <body>
+
+    <h1>Playlist - {{ playlist.title|title }}</h1>
+
+    <!--Initializing JavaScript variables-->
+    <script type="text/javascript">
         var vids = [];
         var vidCount = 0;
         var m;
-</script>
-{% for m in media %}
+    </script>
+
+    <div id="player"></div>
+    
+    {% if media %}
+    
+	<ul>
+    <!--Adds each 'Media' in PL into 'vids' variable in JavaScript-->
+	{% for m in media %}
         <script>
             m = "{{ m.url }}";
             vids[vidCount] = m;
             vidCount++;
         </script>
-{% endfor %}
-<script>
+	{% endfor %}
+
+    <!--JavaScript for loading and manipulating YouTube player-->
+    <div id="player"></div>
+              
+              <script>
         
               // 2. This code loads the IFrame Player API code asynchronously.
               var tag = document.createElement('script');
@@ -36,8 +62,8 @@
               var player;
               function onYouTubeIframeAPIReady() {
                 player = new YT.Player('player', {
-                  height: '100%',
-                  width: '100%',
+                  height: '390',
+                  width: '640',
                   videoId: video_id,
                   events: {
                     'onReady': onPlayerReady,
@@ -133,60 +159,23 @@
 		}
 	      }*/
 
-</script>
+              </script>
+            
+              <!--Initialize next/prev images and buttons-->
+              <!--<img id="prev_vid_img"></img>-->
+	      <div id="playlist">&nbsp;</div>
+              <button onclick=prevVid()><img id="prev_vid_img"></img></button>
+              <button onclick=nextVid()><img id="next_vid_img"></img></button>
+              <!--<img id="next_vid_img"></img>-->
+              <script>nextImg()</script>
+	</ul>
 
-</head>
-<body>
-<div id="logo-container" align="right">
-	<div id="logo"></div>
-	<div id="header_text"></div>
-	<br /><br /><br /><br /><br /><br />
-	{% if user.is_authenticated %}
-	  Welcome, <a href="/allthemedia/user/{{ user.username }}">
-		{{ user.username }}</a>! |
-	  <a href="/allthemedia/logout/">Logout</a> | <a href="/allthemedia/add_playlist/">Create Playlist</a>
 	{% else %}
-	<a href="/allthemedia/register/">Register</a> |
-	  <a href="/allthemedia/">Login</a>
+    <!--Empty Playlist-->
+	No media in playlist
 	{% endif %}
-	</div>
-</div>
-<div id="logo-spacer"></div>
 
-<!-- begin content -->
-<div id="vidbox_spacerl">&nbsp;</div>
-<div class="vidbox_playpn">
-	<div class="vidbox_playpnspacer"></div>
-	<img onclick="javascript:prevVid()" id="prev_vid_img"></img><br />Skip Back
-</div>
-<div id="vidbox">
-	<div id="vidbox_player">
-		<div id="player"></div>
-	</div>
-	<div id="vidbox_info">
-		<form method="post" id="media_form" action="/allthemedia/user/{{ user_name_url }}/{{ playlist.url }}/">
-			{% csrf_token %}
-			{% for hidden in form.hidden_fields %}
-			{{ hidden }}
-			{% endfor %}
-
-			{% for field in form.visible_fields %}
-			{{ field.errors }}
-			{{ field.help_text }}
-			{{ field }}
-			{% endfor %}
-		<input type="submit" name="submit" value="submit" />
-	</div>
-</div>
-<div id="vidbox_spacerr">&nbsp;</div>
-<div class="vidbox_playpn">
-	<div class="vidbox_playpnspacer"></div>
-	<img onclick="javascript:nextVid()" id="next_vid_img"></img><br />Skip Ahead
-</div>
-<script>nextImg()</script>
-<!-- Copyright -->
-<div id="copyright">
-Copyright &copy; ALL the media 2013+
-<!-- End Copyright -->
-</body>
+	<!--testing <a href="/allthemedia/user/joe/scott_pilgrim_songs/add_media/">Add New Sheeeiiiit</a> -->
+    
+  </body>
 </html>

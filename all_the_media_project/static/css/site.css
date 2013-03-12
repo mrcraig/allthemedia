@@ -99,3 +99,48 @@ body{
 	bottom:0px;
 	position:absolute;
 }
+#midcontent_spacer{
+	width:30%;
+	float:left;
+}
+#midcontent_box{
+	width:40%;
+	background-color:#FFFFFF;
+	height:60%;
+	float:left;
+	padding:20px;
+}
+#vidbox_spacerl{
+	float:left;
+	width:5%;
+}
+#vidbox_spacerr{
+	float:left;
+	width:.5%;
+}
+.vidbox_playpn{
+	width:10%;
+	height:100%;
+	float:left;
+	position:50%;
+	text-align:center;
+}
+.vidbox_playpnspacer{
+	height:30%;
+}
+#vidbox{
+	float:left;
+	width:70%;
+	height:70%;
+}
+#vidbox_player{
+	width:80%;
+	height:100%;
+	float:left;
+}
+#vidbox_info{
+	float:left;
+	width:20%;
+	height:100%;
+	background-color:GREEN;
+}
