@@ -70,9 +70,13 @@
 
 <!-- User logged in -->
 	<div class="playlist-container">
-		<!-- My Playlists -->
+
 			<div class="playlist">
 				My Playlists
+				<p></p>
+				{% for p in user_playlists %}
+				<a href="/allthemedia/user/{{user.username}}/{{ p.url }}">{{ p.title }}</a> |
+				{% endfor %}
 			</div>
 		<!-- End my playlists -->
 

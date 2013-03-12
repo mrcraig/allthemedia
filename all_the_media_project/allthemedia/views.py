@@ -18,6 +18,10 @@ def index(request):
     all_playlists = Playlist.objects.all()
     context_dict = { 'all_playlists' : all_playlists }
     context = RequestContext(request)
+    if request.user.is_authenticated():
+        context_dict['user'] = request.user
+        context_dict['user_playlists'] = Playlist.objects.filter(creator = request.user)
+        
     # registration stuff
     registered = False
     if request.method == 'POST':
