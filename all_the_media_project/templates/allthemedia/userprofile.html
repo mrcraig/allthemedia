@@ -1,16 +1,32 @@
-<!---
-
-user(request, user_name_url)
-returns:
-   user: the user associated with this profile
-   userprofile: the UserProfile model of the user whose profile we are --
-  --trying to view
-   playlists: list of playlists associated with this user
-
----->
-
+<html>
+<head>
+<title>ALL the media - Your media solution</title>
+<link rel="stylesheet" href="{{STATIC_URL}}css/site.css" type="text/css" />
+</head>
 <body>
-  <h2>{{ user.username|capfirst }}'s Profile</h2>
+<div id="logo-container" align="right">
+	<div id="logo"></div>
+	<div id="header_text"></div>
+	<br /><br /><br /><br /><br /><br />
+	{% if user.is_authenticated %}
+	  Welcome, <a href="/allthemedia/user/{{ user.username }}">
+		{{ user.username }}</a>! |
+	  <a href="/allthemedia/logout/">Logout</a> |
+	  <a href="/allthemedia/add_playlist/">Add Playlist</a>
+	{% else %}
+	<a href="/allthemedia/register/">Register</a> |
+	  <a href="/allthemedia/">Login</a>
+	{% endif %}
+	</div>
+</div>
+<div id="logo-spacer"></div>
+
+
+<!-- Add form -->
+<div id="midcontent_spacer">&nbsp;</div>
+<div id="midcontent_box">
+User Profile<hr />
+<h2>{{ user.username|capfirst }}'s Profile</h2>
   {% if playlists %}
   <ul>
   {% for playlist in playlists %}
@@ -22,5 +38,12 @@ returns:
   {% else %}
   <p>No playlists yet.</p>
   {% endif %}
-  
+</div>
+<!-- end add form -->
+
+<!-- Copyright -->
+<div id="copyright">
+Copyright &copy; ALL the media 2013+
+<!-- End Copyright -->
 </body>
+</html>
