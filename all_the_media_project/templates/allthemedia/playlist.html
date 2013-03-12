@@ -165,8 +165,9 @@
 	</div>
 	<div id="vidbox_info">
 		{{ playlist.title|title }}<br />
-		by {{ user.username }}<hr />
-		
+		<emph>by {{ user.username }}</emph><hr />
+		<br /><br />
+		<b>Add Song</b>
 		<form method="post" id="media_form" action="/allthemedia/user/{{ user_name_url }}/{{ playlist.url }}/">
 			{% csrf_token %}
 			{% for hidden in form.hidden_fields %}
