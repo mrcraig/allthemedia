@@ -21,30 +21,24 @@
 </div>
 <div id="logo-spacer"></div>
 
+<!-- Begin content -->
+  <h2>{{ user.username|capfirst }}'s Profile</h2>
+  {% if playlists %}
+  <ul>
+  {% for playlist in playlists %}
+  <li>
+  <a href="{{ playlist.url }}">{{ playlist.title }}</a>
+  </li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p>No playlists yet.</p>
+  {% endif %}
 
-<!-- Add form -->
-<div id="midcontent_spacer">&nbsp;</div>
-<div id="midcontent_box">
-Create Playlist<hr />
-To create a playlist, simply enter the name of the playlist below. <br /><br />
-	<form method="post" id="pl_form" action="/allthemedia/add_playlist/">
-		  {% csrf_token %}
-		  {% for hidden in form.hidden_fields %}
-		  {{ hidden }}
-		  {% endfor %}
-		  {% for field in form.visible_fields %}
-		  {{ field.errors }}
-		  {{ field.help_text }}
-		  {{ field }}
-		  {% endfor %}
-		  <input type="submit" name="submit" value="Create Playlist" />
-	</form>
-</div>
-<!-- end add form -->
 
 <!-- Copyright -->
 <div id="copyright">
-Copyright &copy; ALL the media 2013+
+ALL the media 2013
 <!-- End Copyright -->
 </body>
 </html>
