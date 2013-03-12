@@ -63,22 +63,107 @@ Ross Taylor \\
 \end{itemize}
 
 \section{Client Interface}
+\subsection{Wireframe Designs}
+\subsubsection{Login/Main Page}
+\includegraphics[scale=0.3]{img/login}
+\begin{enumerate}
+\item \textbf{Logo Header} - A constant feature running throughout all areas of the system. This is clickable and will return the user to the homepage from any page in the website.
+\item \textbf{Login Window} - A form to provide users with login functionality will be included here.
+\item \textbf{Register Window} - A form to allow users to register will be included here.
+\item \textbf{Popular Playlists} - This section will include popular playlists. Playlists popularity will be assessed by click count over the time period of one week.
+\item \textbf{User Controls} - This section will include controls relevant to the user. In the case of a user that has not yet logged in, this will display Login/Register with links to each.
+\end{enumerate}
+
+\subsubsection{Logged In/Main Page}
+\includegraphics[scale=0.3]{img/loggedin}
+\begin{enumerate}
+\item \textbf{My Playlists} - User created playlists will be displayed here.
+\item \textbf{Collaborated Playlists} - Playlists the user has collaborated on will be displayed here.
+\item \textbf{Popular Playlists} - Popular playlists will be displayed here.
+\item \textbf{Playlist Thumbnail} - A thumbnail will be generated from a selection of thumbnails of media included in the playlist.
+\item \textbf{User Controls} - This section includes controls relevant to the user. In the case of a user that has logged in, this will display a link to the users profile, Logout and Create Playlist.
+\end{enumerate}
+
+\subsubsection{Create New Playlist}
+\includegraphics[scale=0.3]{img/new_pl}
+\begin{enumerate}
+\item \textbf{Create new playlist form} - This section will include a form to create a new blank playlist.
+\end{enumerate}
+
+\subsubsection{View Playlist}
+\includegraphics[scale=0.3]{img/playlist}
+\begin{enumerate}
+\item \textbf{Previous} - Will display a thumbnail of the previous media item in the playlist. Clicking this will play the previous item in the playlist.
+\item \textbf{Next} - Will display a thumbnail of the next media item in the playlist. Clicking this will play the next item in the playlist.
+\item \textbf{Media Player} - This section will contain the media applet that will play the media. 
+\item \textbf{Playlist Details} - This section will contain details retaining to the playlist, including the playlist title, author, and a form to add a new media item to the playlist (if playlist is the users' own/public).
+\end{enumerate}
+
+\subsubsection{User Profile}
+\includegraphics[scale=0.3]{img/userprof}
+\begin{enumerate}
+\item \textbf{Profile View} - This section will contain details retaining to a users' profile, such as any playlists the user is assosciated with (own/collaborated).
+\end{enumerate}
+
+\subsection{Use Cases}
+\subsubsection{Individual User}
+\includegraphics[scale=0.3]{img/uc_listenalone}
+\subsubsection{Collaborative Playlist}
+\includegraphics[scale=0.3]{img/uc_share}
+
+\subsection{Dynamic Interface Components}
+Due to the nature of the system, it requires many dynamic interface components. 
+
+\subsubsection{Playlist Viewer}
+The most prominent of which appear on the playlist page. The playlist page must be able to dyanmically update the content of the media container based on a number of conditions.
 \begin{itemize}
-\item	Draw a wireframe of the user interface
-\item	this may require several wireframes depending on the complexity of the application and the interfaces
-\item	Describe the user interface.
-\item	i.e. Label key input and output components: describe them.
-\item	Provide a Walkthrough and explain the user interactions with application. 
-\item	i.e. use cases
-\item	Describe the interactions associated with the dynamic components on the user interface.
-\item	What calls are required to dynamically update the data on the client side?
-\item	How does the user interface help the user achieve their goal, or complete their task? 
-\item	Is the user interface intuitive, appealing, usable, etc?
-\item	What technologies are used on the client side? 
-\item	What are the reasons for your choices? i.e. what is the advantages and disadvantages of using this technology? 
-\item	What other options are there? 
+\item Media ends
+\item Media is skipped forward
+\item Media is skipped backward
 \end{itemize}
 
+In all three of the above cases, code must execute to update the display elements to show relevant data.
+\begin{itemize}
+\item Playing media must be replaced with new media
+\item Forward and back thumbnails must be replaced with new forward/back thumbnails
+\end{itemize}
+
+A dynamic interface is also required in this instance to prevent unauthorised users from adding media to playlists.
+
+\subsubsection{Index Page}
+The index page must be updated according to whether a user is currently logged in. This will prevent users who are already logged in from seeing unneccesary controls; and allow the system to display data tailored to the currently logged in user - such as playlists a user has contributed to. 
+
+\subsection{Dynamic Update Calls}
+All calls to dynamically update content were written in JavaScript.
+
+The calls implemented are as follows.
+
+\begin{itemize}
+\item \textbf{onPlayerReady(event)} - Initialises player
+\item \textbf{stopVideo()} - Stops the video playing (youtube API)
+\item \textbf{onPlayerStateChange(event)} - Calls when the video stops playing. Calls nextVid()
+\item \textbf{nextVid()} - Loads next video
+\item \textbf{nextImg()} - Loads thumbnail images for previous and next media
+\end{itemize}
+
+\subsection{How the Interface helps}
+The user interface has been designed so as to guide the user through each stage required to create and view a playlist. Once the user completes one action, the interface will redirect the user to the next screen they will be likely to use. By doing this, users will waste minimal time trying to navigate menus. 
+
+The user interface is clear as to what data is required of the user at all times. This will help the user to instantly know what information they must locate and include. 
+
+The user interface is kept consistent, and each page follows a general layout structure. This makes the system more intuitive as the user is able to guess where controls will be if a screen looks similar to one they have seen before.
+
+\subsection{Appeal of User Interface}
+The user interface has been designed to be as appealing as possible. At its current state, some tidying up of the CSS is still required, however, pages have been designed to minimize cluttering and graphics have been used to add to the appeal.
+The media player itself has been to take up as much of the page as possible. This is to draw focus to it, as the current playing media is the main aspect of the website. 
+The website is also kept consistent throughout the pages, with a similar look and feel. This makes the website intuitive to the user, as users are likely to be able to guess the location of functions before they have loaded.
+
+\subsection{Client Technologies Used}
+The only prerequisite of a client wishing to use the system is to have a 'modern' web browser. The application uses CSS, JavaScript, Flash (for some media applets) and HTML - all of which are available through most browsers. 
+
+These technologies were chosen as we wanted to make the system as accessible to as many users as possible. We invisaged this application going mainstream and therefor wanted minimal fuss. These technologies were examined to assess their suitability to implement the system to a high standard, and were deemed acceptable.
+
+Another solution that could of been implemented was to write the entire program in Flash/C/Java. Although suitable, these would require the user to install extra software which we felt would not be suitable.
 \section{Application Architecture}
 \input{./tex/appArch}
 
@@ -158,19 +243,20 @@ For the implementation of this application we used the following technologies:
 \item JavaScript - A number of scripts are used in the page templates, for example: the generation of the YouTube player on the playlist page is done within a script.
 \item CSS - The appearance and layout of the pages is handled using CSS.
 \item YouTube API - The YouTube API is accessed by the playlist page to allow our application to view YouTube videos and also to tell when the videos are finished to autoplay the next video.
-%\item Amazon Servers - *************************************************
+\item Amazon EC2 - An Amazon EC2 server instance was the method used to host our completed project, and test the project on a group of beta users. Amazon EC2 was chosen as it allows for a flexible user load and will run django.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Reflective Summary}
-{\bf For the Implementation Report Only:}
-\begin{itemize}
-\item	What have you learnt through the process of development? 
-\item	How did the application of frameworks help or hinder your progress? 
-\item	What problems did you encounter? 
-\item	What were your major achievements?
-\end{itemize}
+Personally, I feel as though I have learnt quite a lot during the course of the project. Although I used to be extensively involved in web development, having never used a framework before, it was a new and interesting experience having to edit several different - seemingly unrelated - files to create the desired look and feel of the application. The concept of having forms show up in a standard layout was also an interesting one, and I learned a lot about the flow of data through a django website, and where different aspects of it came from.
+
+Due to personal previous experience, the application framework was quite a hinderance to the progress of the project as I constantly found myself wanting to edit the top level code rather than the code that would generate a certain form/object. This, I assume, is all down to habit though - and I can definitely see the benefit in forcing a standardisation of objects such as forms. 
+The administration interface was quite useful to development meaning it was not necessary to delve deep into the raw database. Though, again, I found myself wanting complete control.
+
+All major problems encountered were due to the limiting nature (or my inexperience) of django. Countless days were spent trying to get a model to pass a form through it whilst also accepting another form's input. In the end, some modules were left without this complete integration which I am extremely disappointed about. 
+
+In the end, I would say the major achievements in the project were the things we worked hardest for - such as solving our earlier problems with forcing models to accept more than one input. The system was also completed (almost error-free) in an extremely limited timespan, something which I am incredibly proud of. The stylesheet was written from scratch, meaning our system will be different to every other system out there and I believe we have made our initial idea all those weeks ago a reality. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
