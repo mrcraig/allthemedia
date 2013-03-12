@@ -3,7 +3,7 @@ body{
 	background-position:fixed;
 	background-repeat:repeat-x;
 	margin:0px;
-	font-family:verdana;
+	font-family:verdana,helvetica,arial,sans-serif;
 	font-size:16px;
 }
 #logo-container{
@@ -11,7 +11,6 @@ body{
 	padding-right:5px;
 	width:100%-5px;
 	height:150px;
-	font-family:verdana;
 	font-size:17px;
 	color:#FFFFFF;
 }
@@ -81,14 +80,67 @@ body{
 	height:50px;
 	text-align:center;
 }
-#popular-spacer{
+.playlist-container{
+	width:100%-40px;
+	padding-right:20px;
+	padding-left:20px;
+}
+.playlist-spacer{
 	height:5%;
 }	
-#popular-container{
+.playlist{
 	height:15%;
 	background-color:brown;
+	width:100%-20px;
 }
 #copyright{
 	width:100%;
 	text-align:center;
+	bottom:0px;
+	position:absolute;
+}
+#midcontent_spacer{
+	width:30%;
+	float:left;
+}
+#midcontent_box{
+	width:40%;
+	background-color:#FFFFFF;
+	height:60%;
+	float:left;
+	padding:20px;
+}
+#vidbox_spacerl{
+	float:left;
+	width:5%;
+}
+#vidbox_spacerr{
+	float:left;
+	width:.5%;
+}
+.vidbox_playpn{
+	width:10%;
+	height:100%;
+	float:left;
+	position:50%;
+	text-align:center;
+}
+.vidbox_playpnspacer{
+	height:30%;
+}
+#vidbox{
+	float:left;
+	width:70%;
+	height:70%;
+}
+#vidbox_player{
+	width:80%;
+	height:100%;
+	float:left;
+}
+#vidbox_info{
+	float:left;
+	width:20%;
+	height:100%;
+	background-color:GREEN;
 }
