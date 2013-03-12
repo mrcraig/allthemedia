@@ -2,12 +2,9 @@ This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: report.aux
 The style file: abbrv.bst
 Database file #1: bibliography.bib
-Warning--I didn't find a database entry for "glassey2011framework"
-Warning--I didn't find a database entry for "glassey2010fifi"
-Warning--I didn't find a database entry for "elliot2010fifi"
 You've used 2 entries,
             2118 wiz_defined-function locations,
-            514 strings with 4016 characters,
+            511 strings with 3967 characters,
 and the built_in function-call counts, 502 in all, are:
 = -- 49
 > -- 14
@@ -46,4 +43,3 @@ warning$ -- 0
 while$ -- 6
 width$ -- 3
 write$ -- 23
-(There were 3 warnings)
