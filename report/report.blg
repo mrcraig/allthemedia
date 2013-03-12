@@ -2,53 +2,48 @@ This is BibTeX, Version 0.99c (Web2C 7.5.6)
 The top-level auxiliary file: report.aux
 The style file: abbrv.bst
 Database file #1: bibliography.bib
-I was expecting a `,' or a `}'---line 4 of file bibliography.bib
- : 
- : year=2012
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "glassey2011framework"
 Warning--I didn't find a database entry for "glassey2010fifi"
 Warning--I didn't find a database entry for "elliot2010fifi"
-You've used 1 entry,
+You've used 2 entries,
             2118 wiz_defined-function locations,
-            508 strings with 3895 characters,
-and the built_in function-call counts, 294 in all, are:
-= -- 29
-> -- 7
+            514 strings with 4016 characters,
+and the built_in function-call counts, 502 in all, are:
+= -- 49
+> -- 14
 < -- 0
-+ -- 4
-- -- 2
-* -- 23
-:= -- 55
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 4
++ -- 7
+- -- 4
+* -- 29
+:= -- 90
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 8
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 11
-empty$ -- 25
-format.name$ -- 2
-if$ -- 56
+cite$ -- 2
+duplicate$ -- 18
+empty$ -- 47
+format.name$ -- 4
+if$ -- 102
 int.to.chr$ -- 0
-int.to.str$ -- 1
+int.to.str$ -- 2
 missing$ -- 1
-newline$ -- 8
-num.names$ -- 2
-pop$ -- 2
+newline$ -- 13
+num.names$ -- 4
+pop$ -- 10
 preamble$ -- 1
-purify$ -- 3
+purify$ -- 6
 quote$ -- 0
-skip$ -- 7
+skip$ -- 14
 stack$ -- 0
-substring$ -- 22
-swap$ -- 1
+substring$ -- 27
+swap$ -- 2
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
+type$ -- 8
 warning$ -- 0
-while$ -- 4
-width$ -- 2
-write$ -- 13
-(There was 1 error message)
+while$ -- 6
+width$ -- 3
+write$ -- 23
+(There were 3 warnings)

@@ -1,18 +1,3 @@
-\begin{itemize}
-\item	N-Teir Architecture Diagram
-\item	i.e. data flow diagram between the interface/client, middle ware, and backend services/data repos
-\item	Describe the data model i.e. what data needs to be stored or persisted by the application?
-\item	What are the relationships within the data model.
-\item	i.e. use ER diagram and explain.
-\item	Describe the backend services used (if any).
-\item	Reflective Questions: 
-\item	How have you ensured that there is a separation of concerns? 
-\item	What other technology could have been used instead of django? 
-\item	What are the advantages of using a Web Application Framework over other technology? 
-\item	And, what are the disadvantages?
-\end{itemize}
-
-
 We used the N-tier diagram shown in figure \ref{fig:n-tier} which
 shows the client (Web Browser), middleware (Django), the database and
 the external service (Youtube API), to design our architecture.
@@ -87,4 +72,12 @@ A key design element in consideration from the start of development
 was separation of concerns.
 Using many technologies (Django, Python, JavaScript, HTML, CSS etc.)
 it was paramount that each of these be kept as seperate as possible so
-that the source could remain readable.
+that the source could remain readable and maintainable.
+Thanks to Django using the DRY (Don't Repeat Yourself) Principle
+\cite{dryPrinciple} much of the separation of concerns was handled
+simply by using Django.
+However within this we set a static directory for the cascading
+stylesheets (CSS) and for images to be used for the thumbnail of the
+UserProfile data model.
+This kept the style of the HTML markup away from the markup itself and
+away from any javascript within that markup.
