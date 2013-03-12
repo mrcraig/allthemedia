@@ -9,8 +9,8 @@
 	<div id="header_text"></div>
 	<br /><br /><br /><br /><br /><br />
 	{% if user.is_authenticated %}
-	  Welcome, <a href="/allthemedia/user/{{ user.username|capfirst }}">
-		{{ user.username }}</a>! |
+	  Welcome, <a href="/allthemedia/user/{{ user.username }}">
+		{{ user.username|capfirst }}</a>! |
 	  <a href="/allthemedia/logout/">Logout</a> | <a href="/allthemedia/add_playlist/">Create Playlist</a>
 	{% else %}
 	<a href="/allthemedia/register/">Register</a> |
@@ -62,7 +62,7 @@
 <!-- Create playlist -->
 <div id="playbutton-spacer"></div>
 <div id="playbutton">
-	<button name="cpl" value="cpl" style="height:100%; width:30%;">Create Playlist!</button>
+   <button name="cpl" value="cpl" style="height:100%; width:30%;">Create Playlist!</button>
 </div>
 <!-- End create playlist -->
 	<div class="playlist-container">
