@@ -152,7 +152,7 @@ def add_media(request, playlist_title_url, user_name_url):
                 src = get_source(m.url)
                 m.source = src
                 m.save()
-                return playlist(request, pl.url, user_name_url)
+                return playlist(request, user_name_url, pl.url)
             else:
                 print form.errors
         else:
@@ -164,6 +164,23 @@ def add_media(request, playlist_title_url, user_name_url):
                                'playlist': pl,
                                'form' : form},
                               context)
+
+@login_required
+def delete_playlist(request, user_name_url, playlist_title_url):
+    context = RequestContext(request)
+    playlist_title = decode(playlist_title_url)
+    u = User.objects.get(name=user_name_url)
+    pl = Playlist.objects.get(title = playlist_title, creator = u)
+    if pl and u:
+        media = Media.objects.filter(playlist = pl)
+        for m in media:
+            m.delete()
+        pl.delete()
+        return user(request, u.username)
+    else:
+        HttpResponse("Either the user or the playlist does not exist, check your url")
+        time.sleep(5)
+        return HttpResponseRedirect("/allthemedia/")
 
 
 def encode(title):
